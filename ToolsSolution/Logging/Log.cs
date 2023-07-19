@@ -6,12 +6,19 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Text;
+using ImGuiNET;
 
 namespace ToolsSolution.Logging;
 
 
 public static class Log
 {
+    private static List<string> _logs = new();
+    private static List<string> _warnings = new();
+    private static List<string> _errors = new();
+    private static List<string> _succes = new();
+    
+    
     private static bool debugging = true;
     public static void Message([StringSyntax(StringSyntaxAttribute.CompositeFormat)] string format, object? arg0)
     {
@@ -25,8 +32,13 @@ public static class Log
     {
         if (!debugging) return;
         Console.ForegroundColor = ConsoleColor.White;
-        Console.WriteLine(GetString(showFile, showLine, showFunction, message, memberName, sourceFilePath,
-            sourceLineNumber));
+        string logst = GetString(showFile, showLine, showFunction, message, memberName, sourceFilePath,
+            sourceLineNumber);
+        
+        Console.WriteLine(logst);
+        
+        _logs.Add(logst);
+        
         Console.ForegroundColor = ConsoleColor.White;
     }
 
@@ -42,8 +54,10 @@ public static class Log
     {
         if (!debugging) return;
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine(GetString(showFile, showLine, showFunction, message, memberName, sourceFilePath,
-            sourceLineNumber));
+        string logst = GetString(showFile, showLine, showFunction, message, memberName, sourceFilePath,
+            sourceLineNumber);
+        Console.WriteLine(logst);
+        _succes.Add(logst);
         Console.ForegroundColor = ConsoleColor.White;
     }
 
@@ -59,8 +73,11 @@ public static class Log
     {
         if (!debugging) return;
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine(GetString(showFile, showLine, showFunction, message, memberName, sourceFilePath,
-            sourceLineNumber));
+        string logst = GetString(showFile, showLine, showFunction, message, memberName, sourceFilePath,
+            sourceLineNumber);
+        
+        Console.WriteLine(logst);
+        _warnings.Add(logst);
         Console.ForegroundColor = ConsoleColor.White;
     }
 
@@ -76,9 +93,11 @@ public static class Log
     {
         if (!debugging) return;
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine(GetString(showFile, showLine, showFunction, message, memberName, sourceFilePath,
-            sourceLineNumber));
+        string logst = GetString(showFile, showLine, showFunction, message, memberName, sourceFilePath,
+            sourceLineNumber);
+        Console.WriteLine(logst);
         Console.ForegroundColor = ConsoleColor.White;
+        
     }
 
 
@@ -87,8 +106,8 @@ public static class Log
     {
         
         var sb = new StringBuilder();
-        sb.Append("[" + "time: " + DateTime.Now.ToString("yyyy-MM-dd hh:mm") + "]");
-
+        sb.Append("[" + "time: " + DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss") + "]");
+        
         if (showFunction)
             sb.Append(" | " + memberName);
         if (showFile)
@@ -99,5 +118,62 @@ public static class Log
         sb.Append(" | " + message);
 
         return sb.ToString();
+    }
+
+    internal static void OnGui()
+    {
+        ImGui.Begin("Logs");
+        ImGui.BeginTabBar("Logs");
+        if (ImGui.BeginTabItem("Logs"))
+        {
+            ImGui.BeginChild("Logs");
+            foreach (var log in _logs)
+            {
+                ImGui.Text(log);
+            }
+            ImGui.SetScrollHereY(0.999f);
+            ImGui.EndChild();
+            ImGui.EndTabItem();
+        }
+        
+        if (ImGui.BeginTabItem("Warnings"))
+        {
+            ImGui.BeginChild("Warnings");
+            foreach (var log in _warnings)
+            {
+                ImGui.Text(log);
+            }
+            ImGui.SetScrollHereY(0.999f);
+            ImGui.EndChild();
+            ImGui.EndTabItem();
+        }
+        
+        if (ImGui.BeginTabItem("Errors"))
+        {
+            ImGui.BeginChild("Errors");
+            foreach (var log in _errors)
+            {
+                ImGui.Text(log);
+            }
+            ImGui.SetScrollHereY(0.999f);
+            ImGui.EndChild();
+            ImGui.EndTabItem();
+        }
+        
+        if (ImGui.BeginTabItem("Succes"))
+        {
+            ImGui.BeginChild("succes");
+            foreach (var log in _succes)
+            {
+                ImGui.Text(log);
+            }
+
+            ImGui.SetScrollHereY(0.999f);
+            ImGui.EndChild();
+            ImGui.EndTabItem();
+        }
+        
+        ImGui.EndTabBar();
+        ImGui.End();
     }
 }

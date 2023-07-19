@@ -8,7 +8,7 @@ using OpenTK.Windowing.Common;
 
 namespace ToolsSolution.Rendering.Gui;
 
-internal abstract class GuiWindow
+public abstract class GuiWindow
 {
     private string _title = "";
     private int UID { get; set; } = -1;

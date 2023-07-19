@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolsSolution", "ToolsSolution\ToolsSolution.csproj", "{AF2E40D2-5D4F-4093-A7C0-4DE851FCD999}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Launcher", "Launcher\Launcher.csproj", "{B242567E-F306-4E22-8284-DDD5DD3C6480}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SshApp", "SshApp\SshApp.csproj", "{857D26F3-0B17-42AC-A49C-1E41BB927099}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{AF2E40D2-5D4F-4093-A7C0-4DE851FCD999}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF2E40D2-5D4F-4093-A7C0-4DE851FCD999}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF2E40D2-5D4F-4093-A7C0-4DE851FCD999}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B242567E-F306-4E22-8284-DDD5DD3C6480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B242567E-F306-4E22-8284-DDD5DD3C6480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B242567E-F306-4E22-8284-DDD5DD3C6480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B242567E-F306-4E22-8284-DDD5DD3C6480}.Release|Any CPU.Build.0 = Release|Any CPU
+		{857D26F3-0B17-42AC-A49C-1E41BB927099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{857D26F3-0B17-42AC-A49C-1E41BB927099}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{857D26F3-0B17-42AC-A49C-1E41BB927099}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{857D26F3-0B17-42AC-A49C-1E41BB927099}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

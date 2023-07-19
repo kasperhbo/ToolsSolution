@@ -50,6 +50,7 @@ public class MainWindow : GameWindow
     {
         Log.Message("Resizing window...");
         GL.Viewport(0, 0, ClientSize.X, ClientSize.Y);
+        Log.Succes(String.Format("New size: {0}x{1}", ClientSize.X, ClientSize.Y));
     }
     
     private static MainWindow? _instance = null;
