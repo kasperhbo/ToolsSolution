@@ -68,4 +68,9 @@ internal static class UIWindowRenderer
     {
         _controller.WindowResized(args);
     }
+
+    internal static void TextInput(TextInputEventArgs args)
+    {
+        _controller.PressChar(args);
+    }
 }

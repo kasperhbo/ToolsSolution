@@ -268,12 +268,12 @@ void main()
         io.KeySuper = KeyboardState.IsKeyDown(Keys.LeftSuper) || KeyboardState.IsKeyDown(Keys.RightSuper);
     }
 
-    internal static void PressChar(TextInputEventArgs obj)
+    internal void PressChar(TextInputEventArgs obj)
     {
         PressedChars.Add((char)obj.Unicode);
     }
 
-    internal static void MouseWheel(MouseWheelEventArgs obj)
+    internal void MouseWheel(MouseWheelEventArgs obj)
     {
         var io = ImGui.GetIO();
 

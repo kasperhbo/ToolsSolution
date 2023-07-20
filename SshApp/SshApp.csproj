@@ -8,10 +8,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ToolsSolution\ToolsSolution.csproj" />
+      <ProjectReference Include="..\vendor\ssh-net\src\Renci.SshNet\Renci.SshNet.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="UIWindows\" />
+      <PackageReference Include="X11" Version="1.0.6" />
     </ItemGroup>
 
 </Project>

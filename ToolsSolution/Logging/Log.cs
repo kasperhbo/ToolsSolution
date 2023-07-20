@@ -96,6 +96,7 @@ public static class Log
         string logst = GetString(showFile, showLine, showFunction, message, memberName, sourceFilePath,
             sourceLineNumber);
         Console.WriteLine(logst);
+        _errors.Add(logst);
         Console.ForegroundColor = ConsoleColor.White;
         
     }

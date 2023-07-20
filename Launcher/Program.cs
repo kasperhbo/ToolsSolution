@@ -2,7 +2,7 @@
 using ToolsSolution.Apps;
 using ToolsSolution.Rendering;
 
-SSHAPP app = new SSHAPP();
+SshApplication app = new SshApplication();
 AppManager.AddApp(app);
 
 MainWindow.Get();

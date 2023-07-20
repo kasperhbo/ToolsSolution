@@ -23,6 +23,7 @@ public class MainWindow : GameWindow
         UpdateFrame += Update;
         RenderFrame += Render;
         base.Resize += Resize;
+        base.TextInput += TextInput;
         
         
         GL.ClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -37,7 +38,7 @@ public class MainWindow : GameWindow
     private void Render(FrameEventArgs frameEventArgs)
     {
         GL.Clear(ClearBufferMask.ColorBufferBit);
-        UIWindowRenderer.Render(frameEventArgs);
+        //UIWindowRenderer.Render(frameEventArgs);
         SwapBuffers();
     }
 
@@ -51,6 +52,11 @@ public class MainWindow : GameWindow
         Log.Message("Resizing window...");
         GL.Viewport(0, 0, ClientSize.X, ClientSize.Y);
         Log.Succes(String.Format("New size: {0}x{1}", ClientSize.X, ClientSize.Y));
+    }
+
+    private void TextInput(TextInputEventArgs args)
+    {
+        //UIWindowRenderer.TextInput(args);
     }
     
     private static MainWindow? _instance = null;
