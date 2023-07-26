@@ -13,6 +13,8 @@ namespace ToolsSolution.Rendering.Gui;
 internal static class UIWindowRenderer
 {
     private static ImGuiController _controller;
+
+    private static bool _renderWindows = false;
     
     static UIWindowRenderer()
     {
@@ -45,8 +47,8 @@ internal static class UIWindowRenderer
         
         ImGui.ShowDemoWindow();
         ImGui.ShowAboutWindow();
-
-        if (AppManager.CurrentApp?.Windows != null)
+        
+        if (AppManager.CurrentApp?.Windows != null && _renderWindows)
         {
             foreach (var window in AppManager.CurrentApp?.Windows)
             {

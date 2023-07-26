@@ -38,7 +38,7 @@ public class MainWindow : GameWindow
     private void Render(FrameEventArgs frameEventArgs)
     {
         GL.Clear(ClearBufferMask.ColorBufferBit);
-        //UIWindowRenderer.Render(frameEventArgs);
+        UIWindowRenderer.Render(frameEventArgs);
         SwapBuffers();
     }
 
@@ -56,7 +56,7 @@ public class MainWindow : GameWindow
 
     private void TextInput(TextInputEventArgs args)
     {
-        //UIWindowRenderer.TextInput(args);
+        UIWindowRenderer.TextInput(args);
     }
     
     private static MainWindow? _instance = null;

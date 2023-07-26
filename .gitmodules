@@ -1,3 +1,9 @@
 [submodule "vendor/ssh-net"]
 	path = vendor/ssh-net
 	url = https://github.com/sshnet/SSH.NET.git
+[submodule "vendor/vnc-sharp"]
+	path = vendor/vnc-sharp
+	url = https://github.com/Nomad-Group-LLC/VncSharp.git
+[submodule "vendor/remoteviewing"]
+	path = vendor/remoteviewing
+	url = https://github.com/quamotion/remoteviewing.git
